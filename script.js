@@ -78,6 +78,23 @@ var characters = [
         photo: './imgs/werner_heisenberg.jpeg'
     },
 
-]
+];
 
-console.log(characters);
+
+
+
+
+//SWIPE RABDOM CARD SECTION1-SECTION2
+// function swipe() {
+//     var s1 = Math.floor(Math.random()*n1.length)
+//     var s2 = Math.floor(Math.random()*n2.length)
+//     var temp = n1[s1];
+//     n1[s1] = n2[s2];
+//     n2[s2] = temp;
+//     console.log(temp);
+
+// };
+
+
+
+

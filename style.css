@@ -1,8 +1,8 @@
 
 *{
-    box-sizing: ;
+    box-sizing: border-box;
 }
-.test {
+.main {
     width: 1700px;
     margin: auto;
     background-color: rgb(214, 214, 214);
@@ -10,7 +10,6 @@
     flex-wrap: wrap;
     
 }
-
 .card {
     width: 400px;
     height: 400px;
@@ -22,20 +21,26 @@
     margin-top: 20px;
     margin-left: 20px;
 }
-
-.izmene {
+.section-1 {
     display: flex;
     flex-wrap: wrap;
 }
-.izmene .card {
-    margin-bottom: 20px;
+.section-1 .card {
+    box-shadow: 8px 8px 15px -1px rgba(0,0,0,0.78);
 }
-
+.section-2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+.section-2 .card {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 8px 8px 15px -1px rgba(0,0,0,0.78);
+}
 
 img {
     width: 219px;
     height: 219px;
-    
 }
 h2 {
     margin-bottom: 30px;
