@@ -1,7 +1,6 @@
 'use strict'
 
-
-var characters = [
+var cards = [
     {
         fullName: 'Albert Einstein',
         priceFor: 'Nobel Prize in Physics-1921',
@@ -80,20 +79,63 @@ var characters = [
 
 ];
 
+function shufleArr(arr) {
+    for(var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var perm = arr[i];
+        arr[i] = arr[j];
+        arr[j] = perm;
+    }
+    return arr
+}
+
+function generatePage(arr) {
+    var section1 = document.querySelector('.section-1');
+    var section2 = document.querySelector('.section-2');
+    for(var i = 0; i<arr.length; i++) {
+        var card = document.createElement('div');
+        card.setAttribute('class', 'card')
+        var img = document.createElement('img');
+        img.src = arr[i].photo;
+        var name = document.createElement('h2');
+        name.textContent = `${arr[i].fullName}`
+        var price = document.createElement('h3');
+        price.textContent = `${arr[i].priceFor}`;
+        if(i <= 10) {
+            section1.append(card);
+            card.append(img);
+            card.append(name);
+            card.append(price);
+            sec1.push(arr[i])
+        }
+        else {
+            section2.append(card);
+            card.append(img);
+            card.append(name);
+            card.append(price);
+            sec2.push(arr[i]);
+        }
+    }
+}
+
+function swipeCardsOn5s() {
+    var s1 = Math.floor(Math.random()*sec1.length)
+    var s2 = Math.floor(Math.random()*sec2.length)
+    var temp = sec1[s1];
+    sec1[s1] = sec2[s2];
+    sec2[s2] = temp;
+    console.log('ok');
+};
 
 
 
+var sec1 = [];
+var sec2 = [];
 
-//SWIPE RABDOM CARD SECTION1-SECTION2
-// function swipe() {
-//     var s1 = Math.floor(Math.random()*n1.length)
-//     var s2 = Math.floor(Math.random()*n2.length)
-//     var temp = n1[s1];
-//     n1[s1] = n2[s2];
-//     n2[s2] = temp;
-//     console.log(temp);
 
-// };
+generatePage(shufleArr(cards));
+
+
 
 
 
