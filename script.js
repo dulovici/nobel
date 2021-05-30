@@ -79,6 +79,9 @@ var cards = [
 
 ];
 
+var section1 = document.querySelector('.section-1');
+var section2 = document.querySelector('.section-2');
+
 function shufleArr(arr) {
     for(var i = arr.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -90,8 +93,6 @@ function shufleArr(arr) {
 }
 
 function generatePage(arr) {
-    var section1 = document.querySelector('.section-1');
-    var section2 = document.querySelector('.section-2');
     for(var i = 0; i<arr.length; i++) {
         var card = document.createElement('div');
         card.setAttribute('class', 'card')
@@ -106,34 +107,37 @@ function generatePage(arr) {
             card.append(img);
             card.append(name);
             card.append(price);
-            sec1.push(arr[i])
         }
         else {
             section2.append(card);
             card.append(img);
             card.append(name);
             card.append(price);
-            sec2.push(arr[i]);
         }
     }
 }
 
-function swipeCardsOn5s() {
-    var s1 = Math.floor(Math.random()*sec1.length)
-    var s2 = Math.floor(Math.random()*sec2.length)
-    var temp = sec1[s1];
-    sec1[s1] = sec2[s2];
-    sec2[s2] = temp;
-    console.log('ok');
-};
+function swipeCards() {
+    var sec1 = document.querySelectorAll(".section-1 div");
+    var random1 = Math.floor(Math.random() * sec1.length);
+    section2.appendChild(sec1[random1]);
+
+    var sec2 = document.querySelectorAll(".section-2 div");
+    var random2 = Math.floor(Math.random() * sec2.length);
+    section1.appendChild(sec2[random2]);
+}
 
 
-
-var sec1 = [];
-var sec2 = [];
 
 
 generatePage(shufleArr(cards));
+setInterval(swipeCards,2000)
+//=====================================================
+
+
+
+
+
 
 
 
