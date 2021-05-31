@@ -83,7 +83,7 @@ var section1 = document.querySelector('.section-1');
 var section2 = document.querySelector('.section-2');
 
 function shufleArr(arr) {
-    for(var i = arr.length - 1; i > 0; i--) {
+    for (var i = arr.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var perm = arr[i];
         arr[i] = arr[j];
@@ -93,7 +93,7 @@ function shufleArr(arr) {
 }
 
 function generatePage(arr) {
-    for(var i = 0; i<arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         var card = document.createElement('div');
         card.setAttribute('class', 'card')
         var img = document.createElement('img');
@@ -102,7 +102,7 @@ function generatePage(arr) {
         name.textContent = `${arr[i].fullName}`
         var price = document.createElement('h3');
         price.textContent = `${arr[i].priceFor}`;
-        if(i <= 10) {
+        if (i <= 10) {
             section1.append(card);
             card.append(img);
             card.append(name);
@@ -120,18 +120,21 @@ function generatePage(arr) {
 function swipeCards() {
     var sec1 = document.querySelectorAll(".section-1 div");
     var random1 = Math.floor(Math.random() * sec1.length);
-    section2.appendChild(sec1[random1]);
+    var el1 = sec1[random1]
 
     var sec2 = document.querySelectorAll(".section-2 div");
     var random2 = Math.floor(Math.random() * sec2.length);
-    section1.appendChild(sec2[random2]);
+    var el2 = sec2[random2]
+
+    section1.appendChild(el2);
+    section2.appendChild(el1);
 }
 
 
 
 
 generatePage(shufleArr(cards));
-setInterval(swipeCards,2000)
+setInterval(swipeCards, 2000)
 //=====================================================
 
 
@@ -143,7 +146,6 @@ setInterval(swipeCards,2000)
 // TRANSITION KADA SE SVAJPUJU KARTICE
 // UREDI SLUCAJ KAD SE PADNU DVA ISTA RANDOM BROJA JEDAN ZA DRUGIM
 // OPACCITY NA CARD POZADINI
-
 
 
 
